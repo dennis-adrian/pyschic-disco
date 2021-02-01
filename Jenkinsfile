@@ -6,6 +6,7 @@ pipeline {
 
   options {
     timeout(time: 2, unit: 'MINUTES')
+    buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3')
   }
 
   triggers {
@@ -18,9 +19,14 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('Run tests') {
+    stage('Build project with Webpack') {
       steps {
         sh 'npm run build'
+      }
+    }
+    stage('Publish build to Nexus') {
+      steps {
+        sh 'npm publish'
       }
     }
   }
