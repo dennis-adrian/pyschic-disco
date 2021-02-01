@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is a project with typescript, node and express that should be build with webpack",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "http://192.168.0.20:8081/repository/my-npm-repo/"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
