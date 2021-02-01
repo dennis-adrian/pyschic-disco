@@ -16,7 +16,7 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
-        withNPM(npmrcConfig:'MyNpmrcConfig') {
+        withNPM(npmrcConfig:'8e5932a3-e96d-4cf3-b981-626b56ec9dfe') {
             echo "Performing npm build..."
             sh 'npm install'
         }
