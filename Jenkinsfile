@@ -8,6 +8,10 @@ pipeline {
     timeout(time: 2, unit: 'MINUTES')
   }
 
+  triggers {
+    pollSCM '*/2 * * * *'
+  }
+
   stages {
     stage('Install dependencies') {
       steps {
